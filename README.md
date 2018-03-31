@@ -15,6 +15,8 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 - 项目使用的数据库为MySql，选择resources/sql中的tables_mysql_innodb.sql文件初始化数据库信息。
 - 在resources/application.properties文件中替换为自己的数据源。
 - 运行Application main方法，启动项目。
+- 访问地址：http://localhost:8080/quartz
+- API接口地址：http://localhost:8080/quartz/swagger-ui.html
 
 ## 友情提示
 由于工作原因，项目正在完善中（仅供参考），随时更新日志。
