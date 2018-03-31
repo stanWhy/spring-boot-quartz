@@ -5,7 +5,11 @@
 
 ## 开发环境
 
-JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、quartz2.3.0、vue、layer
+JDK1.7、Maven、Eclipse
+
+## 技术栈
+
+SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、bootstrap
 
 ## 启动说明
 - 项目使用的数据库为MySql，选择resources/sql中的tables_mysql_innodb.sql文件初始化数据库信息。
@@ -28,4 +32,17 @@ JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、qua
 ![输入图片说明](https://gitee.com/uploads/images/2018/0331/181403_b82f6edd_87650.png "5.png")
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0331/181409_b5623f27_87650.png "6.png")
+
+## 已有功能
+
+- 任务列表
+- 任务新增和修改
+- 任务执行
+
+## 待集成功能
+
+- 系统登录以及权限管理
+- 任务停止和开启
+- 任务列表分页
+
 
