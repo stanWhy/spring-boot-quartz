@@ -41,7 +41,7 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 
 ## 待集成功能
 
-- 系统登录以及权限管理(目前是个假的)
+- 系统登录以及权限管理
 - 任务停止和开启
 - 任务列表分页
 
