@@ -5,7 +5,11 @@
 
 ## 开发环境
 
-JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、quartz2.3.0、vue、layer
+JDK1.7、Maven、Eclipse、
+
+## 技术栈
+
+SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、bootstrap
 
 ## 启动说明
 - 项目使用的数据库为MySql，选择resources/sql中的tables_mysql_innodb.sql文件初始化数据库信息。
