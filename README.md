@@ -5,7 +5,7 @@
 
 ## 开发环境
 
-JDK1.7、Maven、Eclipse、
+JDK1.7、Maven、Eclipse
 
 ## 技术栈
 
