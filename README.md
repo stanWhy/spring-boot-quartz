@@ -35,7 +35,7 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0331/181409_b5623f27_87650.png "6.png")
 
-## 已有功能
+## 已实现功能
 
 - 任务列表
 - 任务新增和修改
