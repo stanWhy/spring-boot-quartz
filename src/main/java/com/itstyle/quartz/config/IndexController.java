@@ -1,4 +1,4 @@
-package com.itstyle.quartz.web;
+package com.itstyle.quartz.config;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ public class IndexController {
 	 * @param url
 	 * @return
 	 */
-	@RequestMapping("{url}.html")
+	@RequestMapping("{url}.shtml")
 	public String page(@PathVariable("url") String url) {
 		return  url;
 	}
@@ -23,7 +23,7 @@ public class IndexController {
 	 * @param url
 	 * @return
 	 */
-	@RequestMapping("{module}/{url}.html")
+	@RequestMapping("{module}/{url}.shtml")
 	public String page(@PathVariable("module") String module,@PathVariable("url") String url) {
 		return module + "/" + url;
 	}

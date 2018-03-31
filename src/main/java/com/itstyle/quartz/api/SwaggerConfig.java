@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 	@Bean
 	public Docket userApi() {
-		return new Docket(DocumentationType.SWAGGER_2).groupName("JPA测试").apiInfo(apiInfo()).select()
+		return new Docket(DocumentationType.SWAGGER_2).groupName("任务管理").apiInfo(apiInfo()).select()
 				.apis(RequestHandlerSelectors.basePackage("com.itstyle.quartz.web")).paths(PathSelectors.any()).build();
 	}
 	// 预览地址:swagger-ui.html
