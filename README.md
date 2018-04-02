@@ -15,6 +15,8 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 - 项目使用的数据库为MySql，选择resources/sql中的tables_mysql_innodb.sql文件初始化数据库信息。
 - 在resources/application.properties文件中替换为自己的数据源。
 - 运行Application main方法，启动项目。
+- 项目访问地址：http://localhost:8080/quartz
+- API接口地址：http://localhost:8080/quartz/swagger-ui.html
 
 ## 友情提示
 由于工作原因，项目正在完善中（仅供参考），随时更新日志。
@@ -33,16 +35,19 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0331/181409_b5623f27_87650.png "6.png")
 
-## 已有功能
+![表达式生成器](https://gitee.com/uploads/images/2018/0402/180033_437a1186_87650.png "7.png")
+
+## 已实现功能
 
 - 任务列表
 - 任务新增和修改
 - 任务执行
+- 表达式生成器
 
 ## 待集成功能
 
 - 系统登录以及权限管理
 - 任务停止和开启
-- 任务列表分页
+- 任务列表搜索以及分页
 
 
