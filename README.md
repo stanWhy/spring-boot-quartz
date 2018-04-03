@@ -55,7 +55,7 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 - 任务列表
 - 任务新增和修改
 - 任务执行
-- 表达式生成器
+- 表达式生成器(集成：https://gitee.com/finira/cronboot)
 
 ## 待集成功能
 
