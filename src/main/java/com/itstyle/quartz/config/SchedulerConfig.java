@@ -8,7 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
-
+/**
+ * quartz配置
+ * 创建者 科帮网
+ * 创建时间	2018年4月3日
+ */
 @Configuration
 public class SchedulerConfig {
 

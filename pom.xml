@@ -3,12 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.itstyle.quartz</groupId>
   <artifactId>spring-data-quartz</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>spring-data-quartz</name>
   <url>http://maven.apache.org</url>
    <properties>
      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <docker.image.prefix>springboot</docker.image.prefix>
   </properties>
    <!-- spring-boot-starter-parent包含了大量配置好的依赖管理，在自己项目添加这些依赖的时候不需要写<version>版本号 -->
   <parent>
@@ -77,7 +78,7 @@
         </dependency>  
   </dependencies>
   <build>
-        <finalName>spring-data-jpa</finalName>
+        <finalName>spring-boot-quartz</finalName>
 		<plugins>
 		    <!-- 打包项目 mvn clean package -->
 			<plugin>
@@ -92,6 +93,23 @@
                     </dependency>
                 </dependencies>
 			</plugin>
+			<!-- docker部署 -->
+			<plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.11</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 </project>

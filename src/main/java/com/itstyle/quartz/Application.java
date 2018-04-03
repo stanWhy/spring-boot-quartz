@@ -1,9 +1,7 @@
 package com.itstyle.quartz;
 
 import org.apache.log4j.Logger;
-import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
@@ -18,8 +16,6 @@ public class Application  {
 	
 	public static void main(String[] args) throws InterruptedException, SchedulerException {
 		SpringApplication.run(Application.class, args);
-		Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
-		scheduler.startDelayed(5);//延时5秒启动
 		logger.info("项目启动 ");
 	}
 }
