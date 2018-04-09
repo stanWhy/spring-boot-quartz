@@ -58,6 +58,7 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 - 表达式生成器(集成：https://gitee.com/finira/cronboot)
 - 任务移除
 - Job中注入service为空的问题
+- 系统启动，如果数据库任务为零则初始化测试任务，用于测试
 
 ## 待集成功能
 
