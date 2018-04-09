@@ -1,8 +1,10 @@
 package com.itstyle.quartz.dynamicquery;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
 import org.hibernate.SQLQuery;
 import org.hibernate.transform.Transformers;
 import org.slf4j.Logger;
@@ -79,6 +81,12 @@ public class DynamicQueryImpl implements DynamicQuery {
 		Query q = createNativeQuery(nativeSql, params);
 		q.unwrap(SQLQuery.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
 		return q.getResultList();
+	}
+	
+	@Override
+	public Long nativeQueryCount(String nativeSql, Object... params) {
+		Object count = createNativeQuery(nativeSql, params).getSingleResult();
+		return ((Number) count).longValue();
 	}
 
 }

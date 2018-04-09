@@ -26,4 +26,13 @@ public class JobServiceImpl implements IJobService {
 		return dynamicQuery.nativeQueryListModel(QuartzEntity.class, nativeSql.toString(), new Object[]{});
 	}
 
+	@Override
+	public Long listQuartzEntity(QuartzEntity quartz) {
+		StringBuffer nativeSql = new StringBuffer();
+		nativeSql.append("SELECT COUNT(*)");
+		nativeSql.append("FROM qrtz_job_details AS job LEFT JOIN qrtz_triggers AS tri ON job.JOB_NAME = tri.JOB_NAME ");
+		nativeSql.append("LEFT JOIN qrtz_cron_triggers AS cron ON cron.TRIGGER_NAME = tri.TRIGGER_NAME ");
+		nativeSql.append("WHERE tri.TRIGGER_TYPE = 'CRON'");
+		return dynamicQuery.nativeQueryCount(nativeSql.toString(), new Object[]{});
+	}
 }

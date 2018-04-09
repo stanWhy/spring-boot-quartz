@@ -53,5 +53,14 @@ public interface DynamicQuery {
      *
      */
 	<T> List<T> nativeQueryListModel(Class<T> resultClass, String nativeSql, Object... params);
+	
+	/**
+	 * 执行nativeSql统计查询
+	 * @param nativeSql
+	 * @param params 占位符参数(例如?1)绑定的参数值
+	 * @return 统计条数
+	 */
+	Long nativeQueryCount(String nativeSql, Object... params);
+
 
 }

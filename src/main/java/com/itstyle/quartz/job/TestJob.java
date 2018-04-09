@@ -20,7 +20,7 @@ public class TestJob implements  Job,Serializable {
     
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-		System.out.println(jobService);
+		System.out.println(jobService);//注入jobService 执行相关业务操作
 		System.out.println("任务执行成功");
 	}
 }
