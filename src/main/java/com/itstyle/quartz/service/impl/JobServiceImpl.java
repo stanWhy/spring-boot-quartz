@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.itstyle.quartz.dynamicquery.DynamicQuery;
 import com.itstyle.quartz.entity.QuartzEntity;
 import com.itstyle.quartz.service.IJobService;
-@Service
+@Service("jobService")
 public class JobServiceImpl implements IJobService {
 
 	@Autowired
