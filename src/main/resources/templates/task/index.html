@@ -101,6 +101,23 @@ var vm = new Vue({
 					}
 				}, '修改');
 				functionList.push(edit);
+				//移除
+				var remove = h('Button', {
+					props : {
+						type : 'primary',
+						size : 'small',
+						icon : 'close'
+					},
+					style : {
+						marginRight : '8px'
+					},
+					on : {
+						click : function() {
+							vm.remove(params.row.jobName,params.row.jobGroup);
+						}
+					}
+				}, '移除');
+				functionList.push(remove);
 				// 返回方法集合
 				return h('div', functionList);
 			}
@@ -172,6 +189,27 @@ var vm = new Vue({
 				yes : function(iframeId) {
 					top.frames[iframeId].vm.acceptClick();
 				},
+			});
+		},
+		//移除任务
+		remove : function(jobName,jobGroup){
+			var that = this;
+			top.layer.confirm('确定要移除任务吗？', {
+			      btn: ['确定','取消'] //按钮
+			}, function(){
+				$.ajax({
+					url:"../job/remove",
+					type:"post",
+					data:{'time':(new Date()).toString(),"jobName":jobName,'jobGroup':jobGroup},
+					success: function(result) {
+						if(result.code=="0"){
+							top.layer.msg('任务移除成功', {icon: 1});
+							window.setTimeout(that.list(),1500); 
+						}
+					}
+				});
+			}, function(){
+			  
 			});
 		}
 	},
