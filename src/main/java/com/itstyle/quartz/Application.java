@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * API接口测试：http://localhost:8080/quartz/swagger-ui.html
  */
 @SpringBootApplication
-public class Application  {
+public class Application {
 	private static final Logger logger = Logger.getLogger(Application.class);
 	
 	public static void main(String[] args) throws InterruptedException, SchedulerException {

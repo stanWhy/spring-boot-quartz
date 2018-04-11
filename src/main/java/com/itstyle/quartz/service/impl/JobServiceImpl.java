@@ -3,6 +3,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.itstyle.quartz.dynamicquery.DynamicQuery;
 import com.itstyle.quartz.entity.QuartzEntity;
@@ -23,7 +24,12 @@ public class JobServiceImpl implements IJobService {
 		nativeSql.append("FROM qrtz_job_details AS job LEFT JOIN qrtz_triggers AS tri ON job.JOB_NAME = tri.JOB_NAME ");
 		nativeSql.append("LEFT JOIN qrtz_cron_triggers AS cron ON cron.TRIGGER_NAME = tri.TRIGGER_NAME ");
 		nativeSql.append("WHERE tri.TRIGGER_TYPE = 'CRON'");
-		return dynamicQuery.nativeQueryListModel(QuartzEntity.class, nativeSql.toString(), new Object[]{});
+		Object[] params = new  Object[]{};
+		if(!StringUtils.isEmpty(quartz.getJobName())){//加入JobName搜索其他条件自行实现
+			nativeSql.append(" AND job.JOB_NAME = ?");
+			params = new Object[]{quartz.getJobName()};
+		}
+		return dynamicQuery.nativeQueryListModel(QuartzEntity.class, nativeSql.toString(),params);
 	}
 
 	@Override

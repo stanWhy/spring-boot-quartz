@@ -127,10 +127,18 @@ var vm = new Vue({
 	methods : {
 		//搜索
 		search : function(){
-			 vm.$Notice.open({
+			 /* vm.$Notice.open({
                  title: '完善功能',
                  desc:  '此功能待完善、对于你来说一定很简单'
-             });
+             }); */
+			 $.ajax({
+					url:"../job/list",
+					type:"post",
+					data:{'jobName':content,"pageNo":this.pageNo,'pageSize':this.pageSize},
+					success: function(result) {
+						vm.JobData = result.msg;
+					}
+			});
 		},
 		empty : function(){
 			vm.content = '';
