@@ -89,6 +89,30 @@ public class JobController {
 		}
 		return Result.ok();
 	}
+	@PostMapping("/pause")
+	public  Result pause(QuartzEntity quartz,HttpServletResponse response) {
+		LOGGER.info("停止任务");
+		try {
+		     JobKey key = new JobKey(quartz.getJobName(),quartz.getJobGroup());
+		     scheduler.pauseJob(key);
+		} catch (SchedulerException e) {
+			 e.printStackTrace();
+			 return Result.error();
+		}
+		return Result.ok();
+	}
+	@PostMapping("/resume")
+	public  Result resume(QuartzEntity quartz,HttpServletResponse response) {
+		LOGGER.info("恢复任务");
+		try {
+		     JobKey key = new JobKey(quartz.getJobName(),quartz.getJobGroup());
+		     scheduler.resumeJob(key);
+		} catch (SchedulerException e) {
+			 e.printStackTrace();
+			 return Result.error();
+		}
+		return Result.ok();
+	}
 	@ApiOperation(value="移除任务")
 	@PostMapping("/remove")
 	public  Result remove(QuartzEntity quartz,HttpServletResponse response) {

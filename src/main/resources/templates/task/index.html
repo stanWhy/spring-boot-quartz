@@ -118,6 +118,43 @@ var vm = new Vue({
 					}
 				}, '移除');
 				functionList.push(remove);
+				if(params.row.triggerState=="PAUSED"){
+					//恢复
+					var resume = h('Button', {
+						props : {
+							type : 'primary',
+							size : 'small',
+							icon : 'ios-reload'
+						},
+						style : {
+							marginRight : '8px'
+						},
+						on : {
+							click : function() {
+								vm.resume(params.row.jobName,params.row.jobGroup);
+							}
+						}
+					}, '恢复');
+					functionList.push(resume);
+				}else{
+					//停止
+					var pause = h('Button', {
+						props : {
+							type : 'primary',
+							size : 'small',
+							icon : 'ios-pause'
+						},
+						style : {
+							marginRight : '8px'
+						},
+						on : {
+							click : function() {
+								vm.pause(params.row.jobName,params.row.jobGroup);
+							}
+						}
+					}, '停止');
+					functionList.push(pause);
+				}
 				// 返回方法集合
 				return h('div', functionList);
 			}
@@ -127,10 +164,6 @@ var vm = new Vue({
 	methods : {
 		//搜索
 		search : function(){
-			 /* vm.$Notice.open({
-                 title: '完善功能',
-                 desc:  '此功能待完善、对于你来说一定很简单'
-             }); */
 			 $.ajax({
 					url:"../job/list",
 					type:"post",
@@ -166,6 +199,38 @@ var vm = new Vue({
 						vm.$Notice.success({
 		                    desc:  '任务执行成功'
 		                });
+					}
+				}
+			});
+		},
+		//停止任务
+		pause : function(jobName,jobGroup){
+			$.ajax({
+				url:"../job/pause",
+				type:"post",
+				data:{'time':(new Date()).toString(),"jobName":jobName,'jobGroup':jobGroup},
+				success: function(result) {
+					if(result.code=="0"){
+						vm.$Notice.success({
+		                    desc:  '停止任务成功'
+		                });
+						vm.list();
+					}
+				}
+			});
+		},
+		//恢复任务
+		resume : function(jobName,jobGroup){
+			$.ajax({
+				url:"../job/resume",
+				type:"post",
+				data:{'time':(new Date()).toString(),"jobName":jobName,'jobGroup':jobGroup},
+				success: function(result) {
+					if(result.code=="0"){
+						vm.$Notice.success({
+		                    desc:  '恢复任务成功'
+		                });
+						vm.list();
 					}
 				}
 			});
