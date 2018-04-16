@@ -3,6 +3,9 @@
 基于spring-boot+quartz的CRUD动态任务管理系统，适用于中小项目。
 
 
+基于spring-boot 2.x +quartz 的CRUD任务管理系统：https://gitee.com/52itstyle/spring-boot-task
+
+
 ## 几种任务调度
 
 - Timer，简单无门槛，一般也没人用。
