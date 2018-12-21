@@ -89,7 +89,8 @@ var vm = new Vue({
 				data:quartz,
 				success: function(result) {
 					if(result.code=="0"){
-						window.parent.location.reload();
+						//window.parent.location.reload();
+						$(window.parent.document).contents().find('#app')[0].contentWindow.vm.load();
 					}else{
 						vm.$Notice.error({
 		                    desc:  '系统异常'
